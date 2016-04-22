@@ -1,0 +1,34 @@
+<h3> Hello! </h3>
+
+<% if current_user %>
+  <p> Welcome, <%= current_user.email %> </p>
+  <!-- Get all the classes for which current_user is a teacher & student -->
+  <% teacher_lessons = Array.new %>
+  <% student_lessons = Array.new %>
+  <% Lesson.all.each do |l| %>
+    <% teacher = Teacher.find(l.Teacher_id) %>
+    <% student = Student.find(l.Student_id) %>
+    <% if teacher.User_id == current_user.id %>
+      <% teacher_lessons.push(l) %>
+    <% end %>
+    <% if student.User_id == current_user.id %>
+      <% student_lessons.push(l) %>
+    <% end %>
+  <% end %>
+
+  
+  <% if teacher_lessons.length != 0 %>
+    <p> Lessons you are a teacher for: </p>
+    <% teacher_lessons.each do |l| %>
+      <p> <%= l.title %> </p>
+    <% end %>
+  <% end %>
+
+  <% if student_lessons.length != 0 %>
+    <p> Lessons you are a student for: </p>
+    <% student_lessons.each do |l| %>
+      <p> <%= l.title %> </p>
+    <% end %>
+  <% end %>
+
+<% end %>

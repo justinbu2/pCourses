@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  entry_code: MyString
+  title: MyString
+  intro: MyText
+  Teacher_id: 
+  Student_id: 
+
+two:
+  entry_code: MyString
+  title: MyString
+  intro: MyText
+  Teacher_id: 
+  Student_id: 
