@@ -36,7 +36,7 @@ Rails.application.configure do
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
 
-  # Added for iCourse
+  # Added for pCourses
   # Default url options
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 

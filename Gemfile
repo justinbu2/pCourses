@@ -21,7 +21,7 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-# Added gems for iCourse
+# Added gems for pCourses
 gem 'cancancan', '~> 1.10'
 gem 'devise'
 gem 'simple_form'
