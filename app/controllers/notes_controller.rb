@@ -1,7 +1,8 @@
 class NotesController < ApplicationController
   def new
-    @new_note = Note.new
+    @note = Note.new
     @lesson = Lesson.find(params[:id])
+    @note.Lesson = @lesson
   end
 
   def create

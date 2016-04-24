@@ -6,6 +6,7 @@ class LessonsController < ApplicationController
   def create
     @lesson = Lesson.new lesson_params
     @lesson.Teacher_id = current_user.id
+
     if @lesson.save
       @user = current_user
       redirect_to @current_user
