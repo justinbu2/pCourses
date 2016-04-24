@@ -32,7 +32,7 @@ class NotesController < ApplicationController
   def destroy
     note = Note.find(params[:id])
     note.destroy
-    redirect_to lesson_path(current_user)
+    redirect_to lesson_path(note.Lesson_id)
   end
 
 
