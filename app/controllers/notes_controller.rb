@@ -23,9 +23,21 @@ class NotesController < ApplicationController
     @note = Note.find(params[:id])
   end
 
+  def update
+    @note = User.find(params[:id])
+    @note.update(note_params)
+  end
+
+  def destroy
+    note = Note.find(params[:id])
+    note.destroy
+    redirect_to lesson_path(current_user)
+  end
+
+
   private
     def note_params
-      params.require(:note).permit(:content, :Lesson_id)
+      params.require(:note).permit(:title, :content, :Lesson_id)
     end
 
     def new_params

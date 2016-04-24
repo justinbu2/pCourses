@@ -7,7 +7,7 @@
 
 <% all_notes.sort! { |a,b| a.created_at.to_s <=> b.created_at.to_s } %>
 <% all_notes.each do |n| %>
-  <%= button_to "View " + n.created_at.to_s, note_path(id: n), :class => "button small", :method => :get %>
+  <%= button_to "View " + n.title, note_path(id: n), :class => "button small", :method => :get %>
 <% end %>
 <p> </p>
 <%= button_to "Back to my courses", user_path(id: current_user), :class => "button small", :method => :get %>

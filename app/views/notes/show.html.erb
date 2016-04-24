@@ -1,9 +1,16 @@
 
 <% if current_user %>
   <% cur_lesson = Lesson.find(@note.Lesson_id) %>
-  <h2> Here is your note from <%= @note.created_at.to_s + " for " + cur_lesson.title %> </h2>
+  <h2> Here is your note from <%= @note.title %> for <%= cur_lesson.title %> </h2>
+
+
+  <h1> <%= @note.created_at.to_s %> </h1>
 
   <p> <%= @note.content %> </p>
 
   <%= button_to "Back to Lesson", lesson_path(id: cur_lesson.id), :class => "button small", :method => :get %>
+
+  <%= button_to "Delete Note", note_path(@note), method: :delete %>
+
+
 <% end %>
