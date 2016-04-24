@@ -3,10 +3,12 @@
   <h2> Create a new note here! </h2>
 
   <p> This lesson is <%= @note.Lesson.title %></p>
+  <p> The lesson id is <%= @note.Lesson.id %></p>
 
   <%= simple_form_for @note do |f| %>
     <%= f.input :title %>
     <%= f.input :content %>
+    <%= f.input :Lesson_id %>
     <%= f.button :submit %>
   <% end %>
 <% end %>
