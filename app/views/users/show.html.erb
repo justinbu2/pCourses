@@ -31,7 +31,7 @@
     <p> Lessons you are a teacher for: </p>
     <% teacher_lessons.each do |l| %>
       <% @teacher_lesson = Lesson.find(l.id) %>
-      <%= button_to l.title, lesson_path(id: @teacher_lesson), :class => "button small", :method => :get %>
+      <%= button_to l.title + ", Student: " + User.find(Student.find(l.Student_id)).name, lesson_path(id: @teacher_lesson), :class => "button small", :method => :get %>
       <!-- <p> <%= l.title %> </p> -->
     <% end %>
   <% end %>
@@ -40,7 +40,7 @@
     <p> Lessons you are a student for: </p>
     <% student_lessons.each do |l| %>
       <% @student_lesson = Lesson.find(l.id) %>
-      <%= button_to l.title, lesson_path(id: @student_lesson), :class => "button small", :method => :get %>
+      <%= button_to l.title + ", Instructor: " + User.find(Teacher.find(l.Teacher_id)).name, lesson_path(id: @student_lesson), :class => "button small", :method => :get %>
       <!-- <p> <%= l.title %> </p> -->
     <% end %>
   <% end %>
