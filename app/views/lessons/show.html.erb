@@ -11,3 +11,6 @@
 <% end %>
 <p> </p>
 <%= button_to "Back to my courses", user_path(id: current_user), :class => "button small", :method => :get %>
+<% if @lesson.Teacher_id == current_user.id %>
+  <%= button_to "Delete this courses", lesson_path(id: @lesson), :class => "button small", :method => :delete %>
+<% end %>
