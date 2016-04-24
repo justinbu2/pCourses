@@ -1,0 +1,49 @@
+<h3> Hello! </h3>
+
+<% if @cur_user.id == current_user.id %>
+  <p> Welcome, <%= current_user.name %> </p>
+
+  <!-- Create a lesson -->
+  <%= button_to "Create new lesson", new_lesson_path, :class => "button small", :method => :get %>
+
+  <!-- Get all the classes for which current_user is a teacher & student -->
+  <% teacher_lessons = Array.new %>
+  <% student_lessons = Array.new %>
+  <% Lesson.all.each do |l| %>
+    <% teacher = nil %>
+    <% if Teacher.exists?(l.Teacher_id) %>
+      <% teacher = Teacher.find(l.Teacher_id) %>
+    <% end %>
+    <% if teacher != nil and teacher.User_id == current_user.id %>
+      <% teacher_lessons.push(l) %>
+    <% end %>
+    
+    <% student = nil %>
+    <% if Student.exists?(l.Student_id) %>
+      <% student = Student.find(l.Student_id) %>
+    <% end %>
+    <% if student != nil and student.User_id == current_user.id %>
+      <% student_lessons.push(l) %>
+    <% end %>
+  <% end %>
+
+  <% if teacher_lessons.length != 0 %>
+    <p> Lessons you are a teacher for: </p>
+    <% teacher_lessons.each do |l| %>
+      <% @teacher_lesson = Lesson.find(l.id) %>
+      <%= button_to l.title, lesson_path(id: @teacher_lesson), :class => "button small", :method => :get %>
+      <!-- <p> <%= l.title %> </p> -->
+    <% end %>
+  <% end %>
+
+  <% if student_lessons.length != 0 %>
+    <p> Lessons you are a student for: </p>
+    <% student_lessons.each do |l| %>
+      <% @student_lesson = Lesson.find(l.id) %>
+      <%= button_to l.title, lesson_path(id: @student_lesson), :class => "button small", :method => :get %>
+      <!-- <p> <%= l.title %> </p> -->
+    <% end %>
+  <% end %>
+<% else %>
+  <p> Hmm, you probably shouldn't be here. This is someone else's profile. </p>
+<% end %>

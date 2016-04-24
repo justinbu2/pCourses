@@ -1,0 +1,12 @@
+<h2> Create your new lesson here! </h2>
+<% if current_user %>
+
+  <!-- <%= simple_form_for @new_lesson, url: new_lesson_path do |f| %> -->
+  <%= simple_form_for @new_lesson do |f| %>
+    <%= f.input :title %>
+    <%= f.input :intro %>
+    <%= f.input :Student_id %>
+    <%= f.button :submit %>
+  <% end %>
+<% end %>
+<% end %>

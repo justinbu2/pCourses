@@ -1,0 +1,12 @@
+
+<% if current_user %>
+  <h2> Create a new note here! </h2>
+
+  <p> This lesson id is <%= @lesson.id %></p>
+
+  <%= simple_form_for @new_note do |f| %>
+    <%= f.input :content %>
+    <%= f.input :Lesson_id %>
+    <%= f.button :submit %>
+  <% end %>
+<% end %>
