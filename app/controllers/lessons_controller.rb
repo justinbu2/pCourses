@@ -1,6 +1,6 @@
 class LessonsController < ApplicationController
   def new
-    @new_lesson = Lesson.new
+    @lesson = Lesson.new
   end
 
   def create
