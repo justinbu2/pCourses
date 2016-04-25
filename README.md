@@ -8,6 +8,7 @@
   * Philip Yang <yangp18@berkeley.edu>
 
 ## Demo Link: pcourses.herokuapp.com
+## Screencast Link: https://youtu.be/57P9l_G5l54
 
 ## Idea
   * An application where Users can create lessons and post notes (as a Teacher) and get accepted into classes and view notes (as a Student).
